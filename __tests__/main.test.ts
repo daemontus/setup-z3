@@ -3,7 +3,7 @@ import * as exec from "@actions/exec"
 import * as path from "path"
 import {expect, test} from "@jest/globals"
 
-function executeTest(version = "latest", platform = "host", architecture = "host") {
+function executeTest(version = "latest", platform = "host", architecture = "host", addToLibraryPath = "false") {
   const options = {
     cwd: path.resolve(__dirname, "../lib"),
     env: {
@@ -11,6 +11,7 @@ function executeTest(version = "latest", platform = "host", architecture = "host
       INPUT_VERSION: version,
       INPUT_PLATFORM: platform,
       INPUT_ARCHITECTURE: architecture,
+      INPUT_ADD_TO_LIBRARY_PATH: addToLibraryPath,
       RUNNER_TEMP: "/tmp",
       RUNNER_TOOL_CACHE: "/tmp"
     }
